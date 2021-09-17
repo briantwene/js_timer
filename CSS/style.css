@@ -1,0 +1,440 @@
+/* Filename: style.css
+Author: Brian Twene
+Date: 15/09/2021 */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* || GENERAL STYLES */
+
+:root{
+    
+    --primary: #F6F6F6;
+    --pref-btn: #ffffff;
+    --start-pause:#3ea0fb;
+    --text-color: #000000;
+    --reset:#eb2c2c;
+    --secondary:#e0dfe1;
+}
+
+*{
+    
+    padding: 0;
+    margin: 0;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body{
+    
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 80% 10%;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    background-color: var(--primary);
+}
+
+header{
+    grid-area: header;
+}
+
+main{
+    height: 100%;
+    grid-area:main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+footer{
+    grid-area:footer;
+}
+
+ion-icon{
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+
+
+
+/* preferences button */
+
+.pref_btn{
+    font-size: 2.4rem;
+    padding: 0.6em;
+    margin: 0.5em;
+    border: none;
+    border-radius: 5.5rem;
+    box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.25);
+    line-height: 50%;
+    text-align: left;
+    background-color: var(--pref-btn);
+    
+}
+
+/* timer display/input settings */
+.timer-display{
+    height:30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10em;
+}
+
+label{
+    font-size: 2.4rem;
+}
+.units{
+    margin: 0 1.5em;
+    display: block;
+}
+.colon{
+    font-size: 4.8em;
+    margin: auto;
+}
+
+input{
+    width: 100%;
+    height: 65%;
+    font-size: 4.8rem;
+    border: none;
+    border-radius: 1.5rem;
+    text-align: center;
+    background-color: #e0dfe1;
+}
+
+
+/* start/reset button settings */
+.button-container{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.timer-btn{
+    margin: 0.5em;
+    font-size: 2.4em;
+    padding: 0.4em 1.3em;
+    border: none;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 2.0rem;
+}
+
+.start-pause{
+background-color: var(--start-pause);
+color: var(--pref-btn);
+}
+
+.reset{
+    background-color: var(--reset);
+    color: var(--pref-btn);
+}
+
+/* progress bar settings */
+
+.progress-container{
+    margin: 10%;
+    width: 80%;
+    height: 1%;
+    border-radius: 10px;
+    background-color: var(--secondary);
+    overflow:hidden;
+}
+
+.progress{
+    width:50%;
+    height: 100%;
+    background-color:var(--start-pause);
+}
+
+
+/* side menu settings */
+.menu-background{
+    background-color: rgba(0, 0, 0, 0.55);
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow-x: auto;
+    transition: width 0.5s;
+    display: block;
+}
+
+.open{
+    width: 100%;
+}
+
+.menu-overlay{
+    background-color: var(--primary);
+    height: 100%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.4rem;
+    
+}
+
+/* sound menu */
+.sound-menu{
+    height:80%;
+}
+
+.sound-title{
+    font-size: 3.6rem;
+    font-weight: 600;
+    height: 10%;
+}
+
+.sound-list{
+    list-style-type: none;
+    max-height: 90%;
+    overflow: auto;
+ 
+}
+
+.sound-item{
+    padding: 0.5em 0.5em;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+
+.sound-item:hover, .sound-item:active{
+    background-color: var(--secondary)
+}
+
+
+
+.dark-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* toggle switch settings */
+#switch{
+    margin: auto 0em;
+    appearance: none;
+    width: 1em;
+    height:0.5em;
+    background-color:gray;
+    position: relative;
+    border-radius: 99px;
+}
+
+#switch::before{
+    content: "";
+    height: 90%;
+    width: 50%;
+    background-color: var(--pref-btn);
+    border-radius: 99px;
+    position: absolute;
+    top: 5%;
+    left: 2.5%;
+    transition: 0.3s;
+
+}
+
+#switch:checked{
+    background-color:var(--start-pause);
+}
+
+#switch:checked::before{
+    transform: translate(90%);
+}
+
+
+    
+
+.footer, .dark-container{
+    height: 10%;
+    margin:0.5em;
+}
+
+a:hover, a:visited, a{
+    color: var(--text-color)
+}
+
+
+
+ion-icon[name="checkmark"]{
+    font-size: 3.6rem;
+    color: green;
+
+}
+
+
+
+/* removing the spinner in the input */
+/* source: https://css-tricks.com/snippets/css/turn-off-number-input-spinners/ */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* for firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+@media (prefers-color-scheme: dark){
+    :root{
+
+    --primary: #121212;
+    --start-pause:#3ea0fb;
+    --text-color: #ffffff;
+    --reset:#eb2c2c;
+    --secondary:#282828;
+
+    }
+
+    .timer-btn, .pref_btn{
+        box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 1);
+        background-color: var(--secondary);
+    }
+
+    input{
+        background-color: var(--secondary);
+    }
+
+        .start-pause{
+        background-color: var(--secondary);
+        color: var(--start-pause);
+        }
+        
+        .reset{
+            background-color: var(--secondary);
+            color: var(--reset);
+        }
+
+    button:hover, button:active, input:hover, input:focus{
+        transition: 0.3s;
+        background-color: rgb(30,30,30); 
+    }
+}
+/*screen breakpoints*/
+
+/* 480px */
+@media screen and (min-width:30em) {
+
+    main{
+        width: 90%;
+        justify-self: center;
+    }
+}
+
+/* 768px */
+@media screen and (min-width:48em) {
+    main{
+        width: 65%;
+    }
+
+    input,.colon{
+        font-size: 7.2rem;
+    }
+
+    .timer-btn,.pref_btn{
+        font-size: 4.8rem;
+    }
+
+    label{
+        font-size: 3.6rem;
+    }
+
+    .menu-overlay{
+        width: 50%;
+    }
+
+}
+
+/* 1024px */
+@media screen and (min-width:64em) {
+    main{
+        width: 55%;
+    }
+
+    .menu-overlay{
+        width: 40%;
+    }
+    
+}
+
+/* 1200px*/
+@media screen and (min-width:75em) {
+    main{
+        width: 35%;
+    }
+
+    input,.colon{
+        font-size: 9.6rem;
+    }
+
+    .colon{
+        font-size: 13.6rem;
+    }
+
+    .timer-btn{
+        font-size: 3.6rem;
+    }
+
+    .pref_btn{
+        font-size:3.6rem;
+    }
+
+    label{
+        font-size: 3.6rem;
+    }
+
+    .menu-overlay{
+        width: 30%;
+    }
+
+}
+
+/* 1920px */
+@media screen and (min-width:120em){
+
+    .timer-btn,.sound-title{
+        font-size: 4.8rem;
+    }
+
+    .menu-overlay{
+        font-size: 3.2rem;
+    }
+
+    ion-icon[name="checkmark"]{
+        font-size: 4.8rem;
+    
+    }
+
+    
+
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+<!-- Filename: index.html
+Author: Brian Twene
+Date: 15/09/2021 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS_timer</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <header>
+      <button class="pref_btn">
+        <ion-icon name="settings"></ion-icon>preferences
+      </button>
+    </header>
+      <main>
+        <section class="timer-display">
+          <div class="units">
+            <label>Hrs</label>
+            <input type="number">
+          </div>
+          <div class="colon">:</div>
+          <div class="units">
+            <label>Min</label>
+            <input type="number">
+          </div>
+          <div class="colon">:</div>
+          <div class="units">
+            <label>Sec</label>
+            <input type="number">
+          </div>
+        </section>
+        <div class="progress-container">
+          <div class="progress"></div>
+        </div>
+        <section class="button-container">
+          <button class="timer-btn start-pause">START</button>
+          <button class="timer-btn reset">RESET</button>
+        </section>
+      </main>
+    <footer></footer>
+    
+    <aside class="menu-background">
+        <div class="menu-overlay">
+        <div class="sound-menu">
+
+          <span class="sound-title">
+            <ion-icon name="musical-note"></ion-icon>Sounds
+          </span>
+          <ul class="sound-list">
+            <li class="sound-item">Sound 1 <ion-icon name="checkmark"></ion-icon>
+            </li>
+            <li class="sound-item">Sound 2</li>
+            <li class="sound-item">Sound 3</li>
+            <li class="sound-item">Sound 4</li>
+            <li class="sound-item">Sound 5</li>
+            <li class="sound-item">Sound 6</li>
+            <li class="sound-item">Sound 7</li>
+            <li class="sound-item">Sound 8</li>
+            <li class="sound-item">Sound 9</li>
+            <li class="sound-item">Sound 10</li>
+         
+
+        </div>
+        <div class="dark-container">
+          <p>Dark mode</p>
+          <input type="checkbox" name="switch" id="switch">
+        </div>
+        <div class="footer">
+        <a href="https://github.com/bt521">@bt521</a>
+        <a href="https://github.com/bt521/js_timer">Repo</a>
+        </div>
+      </div>
+    </aside>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+  <script src="JavaScript/app.js"></script>
+</html>
