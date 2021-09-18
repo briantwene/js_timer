@@ -115,6 +115,11 @@ input{
     background-color: #e0dfe1;
 }
 
+.active{
+    background-color: transparent;
+}
+
+
 
 /* start/reset button settings */
 .button-container{
@@ -141,6 +146,10 @@ color: var(--pref-btn);
 .reset{
     background-color: var(--reset);
     color: var(--pref-btn);
+}
+
+.hidden{
+    display: none;
 }
 
 /* progress bar settings */
@@ -296,7 +305,7 @@ input[type=number] {
 }
 
 
-@media (prefers-color-scheme: dark){
+/* @media (prefers-color-scheme: dark){
     :root{
 
     --primary: #121212;
@@ -330,7 +339,7 @@ input[type=number] {
         transition: 0.3s;
         background-color: rgb(30,30,30); 
     }
-}
+} */
 /*screen breakpoints*/
 
 /* 480px */
