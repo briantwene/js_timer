@@ -111,7 +111,7 @@ class Timer{
     //start countdown method
     start(){
         // this.start = window.setInterval(this.countdown.bind(this),1000);
-        this.progress = setInterval(this.startProgress.bind(this), 1000)
+        this.progress = setInterval(this.countdown.bind(this), 1000)
     }
 
     //reset timer method
@@ -157,8 +157,8 @@ start.addEventListener("click", function(){
 
         progress_contain.classList.toggle("progress-active")
 
-        timer1.countdown();
         timer1.start();
+    
 
 
     }
