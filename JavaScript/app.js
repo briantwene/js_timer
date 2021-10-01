@@ -111,7 +111,7 @@ class Timer{
     //start countdown method
     start(){
         // this.start = window.setInterval(this.countdown.bind(this),1000);
-        this.progress = setInterval(this.countdown.bind(this), 1000)
+        this.start = setInterval(this.countdown.bind(this), 1000)
     }
 
     //reset timer method
