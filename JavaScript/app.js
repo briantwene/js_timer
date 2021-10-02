@@ -15,6 +15,7 @@ const reset = document.querySelector(".reset");
 const timerDisplay = document.querySelector(".timer-display");
 const progress = document.querySelector(".progress");
 const progress_contain = document.querySelector(".progress-container")
+const body = document.querySelector("body");
 
 
 
@@ -30,9 +31,10 @@ class Timer{
         this.sec = sec;
         this.start;
         this.reset;
-        this.totaltime;
-        this.timeLeft;
+        this.timeSet = this.calcuateTotalSec()
+        this.timeLeft = this.timeSet;
         this.progress;
+        progress.style.width = "100%"
     }
 
     //method for displaying errors
@@ -42,13 +44,14 @@ class Timer{
 
     //countdown method
     countdown(){
-        userInput[0].value = this.hrs;
-        userInput[1].value = this.min;
-        userInput[2].value = this.sec;
+        
+        this.progressBar();
 
+        //check of the timer
         if(this.hrs === 0 && this.min === 0 && this.sec === 0){
-            this.reset()
             alert("timer fin");
+            this.reset();
+            
         }
 
         if(this.min === 0){
@@ -68,59 +71,47 @@ class Timer{
         if(this.sec > 0){
             this.sec--;
         }
+
+        userInput[0].value = this.hrs;
+        userInput[1].value = this.min;
+        userInput[2].value = this.sec;
         
 
     }
 
-    //method for decrementing the units 
-    unitDecrement(unit1, unit2){
-        if(unit1 === 0){
-            if(unit2 > 0){
-                unit2--;
-                unit1 = 60;
-            }
-        }
-    }
-
     //method for actively displaying the progress - in development
     progressBar(){
-        this.timeLeft = this.totalTime
+        this.timeLeft;  
+        this.timeLeft--;
 
-        this.timeLeft--
-        progress.style.width = `${(totalLeft/this.totaltime)*100}%`
-    }
-
-    //method for starting the progress bar - in development
-    startProgress(){
-        this.totalTime = this.calcuateTotalSec()
-
-        this.progress = setInterval(this.progressBar.bind(this), 1000)
-
-
+        progress.style.width = `${parseFloat((this.timeLeft/this.timeSet)*100)}%`
     }
 
     //function for calculating the total time - in progress
     calcuateTotalSec(){
        let totalHrs = this.hrs*60*60;
        let totalMin = this.min*60;
-
-
-        return this.sec + totalHrs + totalMin;
+       return this.sec + totalHrs + totalMin;
     }
 
     //start countdown method
     start(){
-        // this.start = window.setInterval(this.countdown.bind(this),1000);
+        progress_contain.classList.toggle("progress-active")
         this.start = setInterval(this.countdown.bind(this), 1000)
     }
 
     //reset timer method
     reset(){
+        //resets the timer to the fault values
         this.reset = window.clearInterval(this.start);
         progress_contain.classList.toggle("progress-active")
+        progress.style.width = "0%"
         userInput[0].value = null;
         userInput[1].value = null;
         userInput[2].value = null;
+        this.hrs = null;
+        this.min = null;
+        this.sec = null;
         reset.classList.toggle("hidden")
         start.classList.toggle("hidden")
         for(let i = 0; i < userInput.length; i++){
@@ -154,13 +145,7 @@ start.addEventListener("click", function(){
         let sec = parseInt(userInput[2].value === "" ? 0 : userInput[2].value);
 
         timer1 = new Timer(hrs,min,sec);
-
-        progress_contain.classList.toggle("progress-active")
-
         timer1.start();
-    
-
-
     }
     
     reset.addEventListener("click", function(){
@@ -171,17 +156,13 @@ start.addEventListener("click", function(){
 })
 
 
-
-
 //event listener for side menu
 prefBtn.addEventListener("click", function(){
     sideMenu.classList.toggle("open");
-    
-
 })
 
 //event listener for closing the side menu
-sideMenu.addEventListener("click", function(e){
+sideMenu.addEventListener("click", function(e){    
     if(e.target === sideMenu){
         sideMenu.classList.toggle("open");
     }
@@ -192,7 +173,6 @@ timerDisplay.addEventListener("input", function(e){
     if(e.target.tagName === "INPUT"){
         console.log(e.target);
         validateInput(e.target);
-
     }
 })
 
