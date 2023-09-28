@@ -1,5 +1,5 @@
 # JS_Timer
-A countdown timer made in JavaScript. **[link](https://bt521.github.io/js_timer/)**
+A countdown timer made in JavaScript. **[link](https://briantwene.github.io/js_timer/)**
 ![timer-example](timer.png)
 
 
